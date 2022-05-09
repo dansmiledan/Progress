@@ -12,7 +12,16 @@
                     "created": 1651399497265,
                     "text": "过程抽象"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "cjpxxa49mc00",
+                            "created": 1651562160055,
+                            "text": "按愿望思维"
+                        },
+                        "children": []
+                    }
+                ]
             },
             {
                 "data": {
@@ -20,7 +29,49 @@
                     "created": 1651399504661,
                     "text": "数据抽象"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "cjpgq1ph13c0",
+                            "created": 1651513634328,
+                            "text": "符号表达式"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cjpxnrvhxq80",
+                            "created": 1651561415065,
+                            "text": "语言要素"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cjpxnuxg7m00",
+                                    "created": 1651561421713,
+                                    "text": "基本元语"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cjpxo5a9au80",
+                                    "created": 1651561444256,
+                                    "text": "组合手段"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cjpxo6zfu9k0",
+                                    "created": 1651561447955,
+                                    "text": "抽象手段"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "data": {
