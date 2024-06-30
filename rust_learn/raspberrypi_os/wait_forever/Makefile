@@ -38,7 +38,7 @@ ifeq ($(BSP), rpi3)
     KERNEL_BIN        = kernel8.img
     QEMU_BINARY       = qemu-system-aarch64
     QEMU_MACHINE_TYPE = raspi3b
-    QEMU_RELEASE_ARGS = -d in_asm -display none
+    QEMU_RELEASE_ARGS = -serial stdio -display none
     OBJDUMP_BINARY    = aarch64-none-elf-objdump
     NM_BINARY         = aarch64-none-elf-nm
     READELF_BINARY    = aarch64-none-elf-readelf
@@ -49,7 +49,7 @@ else ifeq ($(BSP), rpi4)
     KERNEL_BIN        = kernel8.img
     QEMU_BINARY       = qemu-system-aarch64
     QEMU_MACHINE_TYPE =
-    QEMU_RELEASE_ARGS = -d in_asm -display none
+    QEMU_RELEASE_ARGS = -serial file:serial.out -display none
     OBJDUMP_BINARY    = aarch64-none-elf-objdump
     NM_BINARY         = aarch64-none-elf-nm
     READELF_BINARY    = aarch64-none-elf-readelf
@@ -91,10 +91,10 @@ OBJCOPY_CMD = rust-objcopy \
 	-O binary
 
 EXEC_QEMU = $(QEMU_BINARY) -M $(QEMU_MACHINE_TYPE)
-
+EXEC_TEST_DISPATCH = ruby tests/dispatch.rb
 
 ### Targets
-.PHONY: all doc qemu clippy clean readelf objdump nm check
+.PHONY: all doc qemu clippy clean readelf objdump nm check test test_boot
 
 all: $(KERNEL_BIN)
 
@@ -130,6 +130,13 @@ else
 qemu:
 	$(call color_header, "Launching QEMU")
 	@$(EXEC_QEMU) $(QEMU_RELEASE_ARGS) -kernel $(KERNEL_BIN)
+
+test_boot: $(KERNEL_BIN)
+	$(call color_header, "Boot test - $(BSP)")
+	$(EXEC_TEST_DISPATCH) $(EXEC_QEMU) $(QEMU_RELEASE_ARGS) -kernel $(KERNEL_BIN)
+
+test: test_boot
+
 endif
 
 ##------------------------------------------------------------------------------

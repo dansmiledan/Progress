@@ -32,7 +32,7 @@ SECTIONS
 	.text :
 	{
 		KEEP(*(.text._start))
-		*(.text.__start_arguments)
+		*(.text._start_arguments)
 		*(.text._start_rust)
 		*(.text*)
 	} :segment_code
