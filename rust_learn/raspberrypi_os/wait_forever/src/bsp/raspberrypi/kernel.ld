@@ -1,8 +1,9 @@
-__rpi_phys_dram_start_addr = 0;
+__rpi_phys_dram_start_addr = 0x0;
 
 __rpi_phys_binary_load_addr = 0x80000;
 
-ENTRY(__rpi_phys_binary_load_addr)
+/**ENTRY(__rpi_phys_binary_load_addr) */
+ENTRY(__rpi_phys_dram_start_addr)
 
 /**
 4 . R
@@ -18,7 +19,7 @@ PHDRS
 
 SECTIONS
 {
-	. = __rpi_phys_binary_load_addr;
+	. = __rpi_phys_dram_start_addr;
 
 	.boot_core_stack (NOLOAD) :
 	{
