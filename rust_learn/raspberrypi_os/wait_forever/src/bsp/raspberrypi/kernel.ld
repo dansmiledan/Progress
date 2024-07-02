@@ -41,7 +41,7 @@ SECTIONS
 
 	.data : { *(.data*) } :segment_data
 
-	.bss (NOLOAD) : ALIGN(8) {
+	.bss (NOLOAD) : ALIGN(16) {
 		__bss_start = .;
 		*(.bss*);
 		. = ALIGN(16);

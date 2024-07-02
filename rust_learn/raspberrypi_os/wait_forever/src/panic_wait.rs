@@ -15,6 +15,7 @@ fn panic_prevent_reenter() {
 	cpu::wait_forever()
 }
 
+#[cfg(not(test))]
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
 	panic_prevent_reenter();

@@ -8,7 +8,7 @@ edition = "2021"
 lto = true
 
 [features]
-default = []
+default = ['bsp_rpi3']
 bsp_rpi3 = []
 bsp_rpi4 = []
 
@@ -18,3 +18,4 @@ path = "src/main.rs"
 
 [dependencies]
 aarch64-cpu = "9.4.0"
+
